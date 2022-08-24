@@ -60,6 +60,12 @@ const normalizeOptions = (options = {}) => ({
 	cwd: toPath(options.cwd) || process.cwd(),
 });
 
+const splitPath = input => path.normalize(input).split(path.sep);
+
+export async function findGitignore(cwd) {
+	const parts = splitPath(cwd);
+}
+
 export const isIgnoredByIgnoreFiles = async (patterns, options) => {
 	const {cwd} = normalizeOptions(options);
 
